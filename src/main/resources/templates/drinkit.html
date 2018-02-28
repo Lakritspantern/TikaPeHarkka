@@ -1,0 +1,43 @@
+
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fi">
+    <head>
+        <title>Drinkkiarkisto</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <a th:href="@{../}">Back</a>
+        <h1>Drink Archive</h1>
+        <h3>Drink:</h3>
+        <ul>
+            <li th:each="drinkki: ${drinkit}">
+               <a th:href="@{drinkit/{id}(id=${drinkki.getId()})}" th:text="${drinkki.getNimi()}">Drink</a>
+               (<a th:href="@{drinkit/{id}/poista(id=${drinkki.getId()})}">poista</a>)
+            </li> 
+        </ul><br>
+        <form method="POST" action="">
+            Name of the drink:<br/>
+            <input type="text" name="Drinkki"/><br/>
+            <input type="submit" value="Lisää"/>
+        </form><br/>
+        <form method="POST" action="">
+            Name of the drink:<br/>
+            <select name="drinkki">
+                <option th:each="drinkki: ${drinkit}"><span th:text="${drinkki}">Drink</span></option>
+            </select>
+            <br/><br/>
+            Alcohol/Mixer to add<br/>
+            <select name="sisalto">
+              <option th:each="mixeri: ${mixerit}"><span th:text="${mixeri}">Mixer</span></option>
+            </select>
+            <br/>
+            Order<br/>
+            <input type="text" name="jarj"/><br/>
+            Amount<br/>
+            <input type="text" name="maara"/><br/>
+            Mixer specific instructions<br/>
+            <input type="text" name="ohje"/><br/>
+            <input type="submit" value="Lisää"/>
+        </form>
+    </body>
+</html>

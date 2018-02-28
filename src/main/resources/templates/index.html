@@ -1,0 +1,19 @@
+
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fi">
+    <head>
+        <title>Drink Archive</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Drink Archive</h1>
+        <h3>Drinks:</h3>
+        <ul>
+            <li th:each="drinkki: ${drinkit}">
+               <a th:href="@{drinkit/{id}(id=${drinkki.getId()})}" th:text="${drinkki.getNimi()}">Drink</a>
+            </li> 
+        </ul><br>
+        <a th:href="@{drinkit}">Add a drink</a><br/>
+        <a th:href="@{juomat}">Add alcohol/mixer</a>
+    </body>
+</html>

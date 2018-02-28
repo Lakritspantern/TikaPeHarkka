@@ -1,0 +1,24 @@
+
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fi">
+    <head>
+        <title>Alcohols/Mixers</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <a th:href="@{../}">Back</a>
+        <h1>Drink Archive</h1>
+        <h3>Mixers:</h3>
+        <ul>
+            <li th:each="mixeri: ${mixerit}">
+               <a th:href="@{juomat/{id}(id=${mixeri.getId()})}" th:text="${mixeri}">Mixer</a>
+               (<a th:href="@{juomat/{id}/poista(id=${mixeri.getId()})}">poista</a>)
+            </li> 
+        </ul><br>
+        <form method="POST" action="">
+            Name of Alcohol/Mixer:<br/>
+            <input type="text" name="blandis"/><br/>
+            <input type="submit" value="Lisää"/>
+        </form><br/>
+    </body>
+</html>

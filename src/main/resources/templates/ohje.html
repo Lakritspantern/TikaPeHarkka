@@ -1,0 +1,19 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="fi">
+    <head>
+        <title th:text="${nimi}">Drink</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <a th:href="@{../}">Back</a>
+        <h1 th:text="${nimi}">Drink</h1>
+
+        <ul>
+            <li th:each="mixeri : ${mixerit}">
+                <span th:text="${mixeri}">Mixer</span>
+            </li>
+        </ul>
+
+    </body>
+</html>
