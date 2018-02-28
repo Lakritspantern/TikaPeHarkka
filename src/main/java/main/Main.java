@@ -18,7 +18,7 @@ public class Main {
             Spark.port(Integer.valueOf(System.getenv("PORT")));
         }
         
-        Spark.get("/", (req, res) -> {
+        Spark.get("", (req, res) -> {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:drinkkiarkisto.db");
             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Drinkki");
             ResultSet rs = stmt.executeQuery();
